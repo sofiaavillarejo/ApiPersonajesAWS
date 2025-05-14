@@ -30,23 +30,23 @@ namespace ApiPersonajesAWS.Controllers
             return Ok();
         }
 
-        [HttpPut("UpdatePersonaje/{id}")]
-        public async Task<ActionResult> Update(int id, [FromBody] Personaje pers)
+        [HttpPut("UpdatePersonaje")]
+        public async Task<ActionResult> Update(Personaje pers)
         {
-            await this.repo.UpdatePersonajesAsync(pers);
+            await this.repo.UpdatePersonajesAsync(pers.IdPersonaje, pers.Nombre, pers.Imagen);
             return Ok();
         }
 
-        [HttpGet("Personajes/{id}")]
-        public async Task<ActionResult<Personaje>> FindPersonaje(int id)
-        {
-            var personaje = await this.repo.FindPersonajeAsync(id);
-            if (personaje == null)
-            {
-                return NotFound();
-            }
-            return personaje;
-        }
+        //[HttpGet("Personajes/{id}")]
+        //public async Task<ActionResult<Personaje>> FindPersonaje(int id)
+        //{
+        //    var personaje = await this.repo.FindPersonajeAsync(id);
+        //    if (personaje == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return personaje;
+        //}
 
     }
 }
