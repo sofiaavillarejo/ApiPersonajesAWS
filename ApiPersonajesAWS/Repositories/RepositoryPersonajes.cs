@@ -46,6 +46,7 @@ namespace ApiPersonajesAWS.Repositories
             Personaje personaje = await this.FindPersonajeAsync(pers.IdPersonaje);
             if (personaje != null)
             {
+                personaje.IdPersonaje = personaje.IdPersonaje;
                 personaje.Nombre = pers.Nombre;
                 personaje.Imagen = pers.Imagen;
                 await this.context.SaveChangesAsync();
