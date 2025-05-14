@@ -30,8 +30,8 @@ namespace ApiPersonajesAWS.Controllers
             return Ok();
         }
 
-        [HttpPut("UpdatePersonaje")]
-        public async Task<ActionResult> Update(Personaje pers)
+        [HttpPut("UpdatePersonaje/{id}")]
+        public async Task<ActionResult> Update(int id, [FromBody] Personaje pers)
         {
             await this.repo.UpdatePersonajesAsync(pers);
             return Ok();
