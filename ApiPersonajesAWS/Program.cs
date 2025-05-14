@@ -26,7 +26,7 @@ if (app.Environment.IsDevelopment())
 app.MapScalarApiReference(opt =>
 {
     opt.Title = "Scalar Personajes";
-
+    opt.Theme = ScalarTheme.Solarized;
 });
 app.UseCors("corsenabled");
 app.MapOpenApi();
